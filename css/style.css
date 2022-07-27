@@ -11,6 +11,7 @@
 html {
   border: 0px solid blue;
   position: absolute;
+  height: 100%;
 }
 
 body {
@@ -170,8 +171,7 @@ main {
 hr {
   margin: auto;
   width: 50%;
-  border: 2.5px solid;
-  border-color: rgba(50, 26, 135, 0.819);
+  border: 2px solid rgba(50, 26, 135, 0.819);
 }
 
 .popular-movies-container {
@@ -208,22 +208,20 @@ hr {
 }
 
 footer {
-  border: 0px solid red;
   position: relative;
-  border-top: 0px solid rgba(46, 18, 146, 0.535);
+  border: 0px solid rgba(46, 18, 146, 0.535);
+  background: rgba(24, 6, 86, 0.347);
 }
 
 #footer-nav {
   display: flex;
   border: 0px solid blue;
   justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 20px;
 }
 
 #website-copyright {
   border: 0px solid green;
   text-align: center;
-  padding-top: 2rem;
   padding-bottom: 2rem;
 }
