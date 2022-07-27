@@ -9,7 +9,8 @@
 }
 
 html {
-  border: 0px solid blue;
+  border: 1px solid blue;
+  position: absolute;
   width: 100vw;
 }
 
@@ -19,7 +20,9 @@ body {
   font-family: Arial;
   height: fit-content;
   position: relative;
-  border: 0px solid red;
+  scroll-behavior: smooth;
+  width: 100%;
+  border: 1px solid red;
 }
 
 header {
@@ -167,8 +170,9 @@ main {
 
 hr {
   margin: auto;
-  width: 50rem;
-  border-color: rgba(46, 18, 146, 0.535);
+  width: 50%;
+  border: 2.5px solid;
+  border-color: rgba(50, 26, 135, 0.819);
 }
 
 .popular-movies-container {
@@ -207,7 +211,7 @@ hr {
 footer {
   border: 0px solid red;
   position: relative;
-  border-top: 1px solid rgba(46, 18, 146, 0.535);
+  border-top: 0px solid rgba(46, 18, 146, 0.535);
 }
 
 #footer-nav {
