@@ -1,4 +1,4 @@
-// https://image.tmdb.org/t/p/original/698FjyzLdpgXmUSr63LaRwblTmx.jpg
+// https://image.tmdb.org/t/p/original/2u1YBNBlSwvBReyvI7i5z5ykQXP.jpg
 // https://image.tmdb.org/t/p/original/[poster_path]
 // the movie db API -> The Movie Database to retrieve movie searches
 // const apiKey2 = "3bcfcbbd6f6ebf7821effeb075ae3ed6";
