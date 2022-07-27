@@ -10,7 +10,7 @@
 
 html {
   border: 0px solid blue;
-  width: fit-content;
+  width: 100vw;
 }
 
 body {
