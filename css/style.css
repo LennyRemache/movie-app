@@ -9,7 +9,7 @@
 }
 
 html {
-  border: 1px solid blue;
+  border: 0px solid blue;
   position: absolute;
   width: 100vw;
 }
@@ -22,7 +22,7 @@ body {
   position: relative;
   scroll-behavior: smooth;
   width: 100%;
-  border: 1px solid red;
+  border: 0px solid red;
 }
 
 header {
