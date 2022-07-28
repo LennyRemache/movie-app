@@ -109,6 +109,15 @@ window.addEventListener("load", () => {
   renderUpcomingMovies();
 });
 
+const loader = document.querySelector(".spinner-wrapper");
+const body_el = document.getElementsByTagName("body")[0];
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    loader.remove();
+    body_el.style.overflowY = "scroll";
+  }, 800);
+});
+
 // renders the #1 Trending Movie at top of the page
 async function renderTopTrending() {
   const trendingMovie = await movies.getTrending();
