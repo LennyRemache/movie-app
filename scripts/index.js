@@ -2,13 +2,6 @@
 // https://image.tmdb.org/t/p/original/[poster_path]
 // the movie db API -> The Movie Database to retrieve movie searches
 
-window.addEventListener("load", () => {
-  renderTopTrending();
-  renderPopMovies();
-  renderUpcomingMovies();
-  renderActionGenre();
-});
-
 const apiKey = "3bcfcbbd6f6ebf7821effeb075ae3ed6";
 
 const movies = {
@@ -70,9 +63,9 @@ const movies = {
         return [upcomingMovieOne, upcomingMovieTwo, upcomingMovieThree];
       });
   },
-  getAction: async function () {
+  getGenreMovies: async function (genre) {
     return await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_genres=Action&with_watch_monetization_types=flatrate`,
+      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}&with_watch_monetization_types=flatrate`,
       { method: "GET" }
     )
       .then((res) => {
@@ -88,6 +81,34 @@ const movies = {
   },
 };
 
+async function getGenres() {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`,
+    { method: "GET" }
+  );
+  const data = await res.json();
+  return data.genres;
+}
+
+window.addEventListener("load", async () => {
+  let genres = [];
+  try {
+    genres = await getGenres();
+  } catch (e) {
+    console.log("Error: ", e);
+  }
+  renderGenres("Action", genres);
+  renderGenres("Romance", genres);
+  renderGenres("Documentary", genres);
+  renderGenres("Animation", genres);
+});
+
+window.addEventListener("load", () => {
+  renderTopTrending();
+  renderPopMovies();
+  renderUpcomingMovies();
+});
+
 // renders the #1 Trending Movie at top of the page
 async function renderTopTrending() {
   const trendingMovie = await movies.getTrending();
@@ -100,22 +121,31 @@ async function renderTopTrending() {
   movieTitle.textContent = trendingMovie.title;
 }
 
-async function renderActionGenre() {
-  const [movieOne, movieTwo, movieThree, movieFour] = await movies.getAction();
-  const actionMovieImages = document.querySelectorAll(".action-movie-img");
-  actionMovieImages[0].setAttribute(
+async function renderGenres(genre_name, genres) {
+  let genre_id;
+  genres.forEach((genre) => {
+    if (genre_name === genre.name) {
+      genre_id = genre.id;
+    }
+  });
+  const [movieOne, movieTwo, movieThree, movieFour] =
+    await movies.getGenreMovies(genre_id);
+  const movieImages = document.querySelectorAll(
+    `.${genre_name.toLowerCase()}-movie-img`
+  );
+  movieImages[0].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${movieOne.backdrop_path}`
   );
-  actionMovieImages[1].setAttribute(
+  movieImages[1].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${movieTwo.backdrop_path}`
   );
-  actionMovieImages[2].setAttribute(
+  movieImages[2].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${movieThree.backdrop_path}`
   );
-  actionMovieImages[3].setAttribute(
+  movieImages[3].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${movieFour.backdrop_path}`
   );
