@@ -115,7 +115,7 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     loader.remove();
     body_el.style.overflowY = "scroll";
-  }, 800);
+  }, 700);
 });
 
 // renders the #1 Trending Movie at top of the page
@@ -126,6 +126,7 @@ async function renderTopTrending() {
     "src",
     `https://image.tmdb.org/t/p/original${trendingMovie.backdrop_path}`
   );
+  movieImage.setAttribute("name", trendingMovie.id);
   const movieTitle = document.querySelector(".popular-movie-title");
   movieTitle.textContent = trendingMovie.title;
 }
@@ -196,5 +197,3 @@ async function renderUpcomingMovies() {
     `https://image.tmdb.org/t/p/original${upcomingMovieThree.backdrop_path}`
   );
 }
-
-//10749
