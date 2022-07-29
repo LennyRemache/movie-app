@@ -109,15 +109,6 @@ window.addEventListener("load", () => {
   renderUpcomingMovies();
 });
 
-const loader = document.querySelector(".spinner-wrapper");
-const body_el = document.getElementsByTagName("body")[0];
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    loader.remove();
-    body_el.style.overflowY = "scroll";
-  }, 700);
-});
-
 // renders the #1 Trending Movie at top of the page
 async function renderTopTrending() {
   const trendingMovie = await movies.getTrending();
@@ -126,6 +117,7 @@ async function renderTopTrending() {
     "src",
     `https://image.tmdb.org/t/p/original${trendingMovie.backdrop_path}`
   );
+  console.log(trendingMovie.id);
   movieImage.setAttribute("name", trendingMovie.id);
   const movieTitle = document.querySelector(".popular-movie-title");
   movieTitle.textContent = trendingMovie.title;
@@ -147,18 +139,25 @@ async function renderGenres(genre_name, genres) {
     "src",
     `https://image.tmdb.org/t/p/original${movieOne.backdrop_path}`
   );
+  movieImages[0].setAttribute("name", movieOne.id);
+
   movieImages[1].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${movieTwo.backdrop_path}`
   );
+  movieImages[1].setAttribute("name", movieTwo.id);
+
   movieImages[2].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${movieThree.backdrop_path}`
   );
+  movieImages[2].setAttribute("name", movieThree.id);
+
   movieImages[3].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${movieFour.backdrop_path}`
   );
+  movieImages[3].setAttribute("name", movieFour.id);
 }
 
 // renders the 3 most popular movies into thw carousal containing popular movies
@@ -169,14 +168,19 @@ async function renderPopMovies() {
     "src",
     `https://image.tmdb.org/t/p/original${popMovieOne.backdrop_path}`
   );
+  popularMovieImages[0].setAttribute("name", popMovieOne.id);
+
   popularMovieImages[1].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${popMovieTwo.backdrop_path}`
   );
+  popularMovieImages[1].setAttribute("name", popMovieTwo.id);
+
   popularMovieImages[2].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${popMovieThree.backdrop_path}`
   );
+  popularMovieImages[2].setAttribute("name", popMovieThree.id);
 }
 
 // renders 3 upcoming movies into the carousal containing upcoming movies
@@ -188,12 +192,17 @@ async function renderUpcomingMovies() {
     "src",
     `https://image.tmdb.org/t/p/original${upcomingMovieOne.backdrop_path}`
   );
+  upcomingMovieImages[0].setAttribute("name", upcomingMovieOne.id);
+
   upcomingMovieImages[1].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${upcomingMovieTwo.backdrop_path}`
   );
+  upcomingMovieImages[1].setAttribute("name", upcomingMovieTwo.id);
+
   upcomingMovieImages[2].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${upcomingMovieThree.backdrop_path}`
   );
+  upcomingMovieImages[2].setAttribute("name", upcomingMovieThree.id);
 }

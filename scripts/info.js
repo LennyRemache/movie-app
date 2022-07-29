@@ -1,8 +1,7 @@
-const loader = document.querySelector(".spinner-wrapper");
-const body_el = document.getElementsByTagName("body")[0];
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    loader.remove();
-    body_el.style.overflowY = "scroll";
-  }, 700);
+const allMovies = document.querySelectorAll(".movie");
+
+allMovies.forEach((movie) => {
+  movie.addEventListener("click", () => {
+    console.log(window.location.href);
+  });
 });
