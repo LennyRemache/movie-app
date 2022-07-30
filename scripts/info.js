@@ -12,11 +12,14 @@ async function getInfo(movie_id) {
 async function renderInfo() {
   const selectedBackdrop = document.querySelector(".selected-backdrop-img");
   const selectedPoster = document.querySelector(".selected-poster-img");
+  const selectedTitle = document.querySelector(".selected-title");
+  const selectedOverview = document.querySelector(".selected-overview");
 
   const movie_id = localStorage.getItem("SELECTED_MOVIE_ID");
   let movie = undefined;
   try {
     movie = await getInfo(movie_id);
+    console.log(movie);
   } catch (e) {
     console.log("Error: ", e);
   }
@@ -28,6 +31,8 @@ async function renderInfo() {
     "src",
     `https://image.tmdb.org/t/p/original${movie.poster_path}`
   );
+  selectedTitle.textContent = movie.title;
+  selectedOverview.textContent = movie.overview;
 }
 
 renderInfo();

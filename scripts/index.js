@@ -205,25 +205,3 @@ async function renderUpcomingMovies() {
   );
   upcomingMovieImages[2].setAttribute("name", upcomingMovieThree.id);
 }
-
-const allMovies = document.querySelectorAll(".movie");
-console.log(allMovies);
-
-allMovies.forEach((movie) => {
-  movie.addEventListener("click", () => {
-    console.log(movie.getAttribute("name"));
-    localStorage.setItem("SELECTED_MOVIE_ID", movie.getAttribute("name"));
-    let path = window.location.pathname.split("/");
-    path[path.length - 1] = "info.html";
-    path = path.join("/");
-    window.location.pathname = path;
-  });
-});
-
-//let newWindow = window.open("info.html");
-//console.log(newWindow);
-
-//const selectedBackdrop = newWindow.querySelector(".selected-backdrop-img");
-//const selectedPoster = newWindow.querySelector(".selected-poster-img");
-
-//console.log(selectedBackdrop);
