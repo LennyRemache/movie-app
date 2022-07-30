@@ -22,6 +22,9 @@
     <div class="spinner-wrapper">
       <div class="spinner-border" role="status"></div>
     </div>
+    <div class="search-container">
+      <input type="search" name="" id="search-bar" />
+    </div>
     <header>
       <h1 id="website-name">Movie.Info</h1>
       <nav id="main-nav">
@@ -39,19 +42,20 @@
       <section class="popular-movie">
         <img class="popular-movie-img" src="" />
         <p class="popular-movie-title"></p>
-        <a class="popular-movie-btn">#1 Trending</a>
+        <p class="popular-movie-btn">#1 Trending</p>
       </section>
       <section class="genres-container">
-        <h2>Genres</h2>
+        <h2>
+          Genres
+          <hr />
+        </h2>
         <section class="action-container genre-item">
           <div class="genre-title">
             <h3>Action</h3>
             <p>Show all</p>
           </div>
           <section class="genre-movie-container">
-            <a href="./info.html"
-              ><img class="action-movie-img movie" src="" alt=""
-            /></a>
+            <img class="action-movie-img movie" src="" alt="" />
             <img class="action-movie-img movie" src="" alt="" />
             <img class="action-movie-img movie" src="" alt="" />
             <img class="action-movie-img movie" src="" alt="" />
@@ -270,6 +274,7 @@
       <p id="website-copyright">&copy; 2022 Movie.Info</p>
     </footer>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/search.js"></script>
     <script src="./scripts/allMovies.js"></script>
     <script src="./scripts/loader.js"></script>
     <!-- JavaScript Bundle with Popper -->

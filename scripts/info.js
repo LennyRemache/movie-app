@@ -19,7 +19,6 @@ async function renderInfo() {
   let movie = undefined;
   try {
     movie = await getInfo(movie_id);
-    console.log(movie);
   } catch (e) {
     console.log("Error: ", e);
   }
