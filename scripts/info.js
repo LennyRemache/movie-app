@@ -1,27 +1,33 @@
-const allMovies = document.querySelectorAll(".movie");
-const newNode = document.importNode(allMovies, true);
+const apiKey = "3bcfcbbd6f6ebf7821effeb075ae3ed6";
 
-const selectedBackdrop = document.querySelector(".selected-backdrop-img");
-const selectedPoster = document.querySelector(".selected-poster-img");
-console.log(selectedBackdrop);
-console.log(selectedPoster);
-console.log(allMovies);
+async function getInfo(movie_id) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}&language=en-US&append_to_response=watch%2Fproviders`,
+    { method: "GET" }
+  );
+  const data = await res.json();
+  return data;
+}
 
-// console.log(allMovies);
-// allMovies.forEach((movie) => {
-//   movie.addEventListener("click", () => {
-//     renderInfo(movie);
-//     let path = window.location.pathname.split("/");
-//     path[path.length - 1] = "info.html";
-//     path = path.join("/");
-//     window.location.pathname = path;
-//   });
-// });
+async function renderInfo() {
+  const selectedBackdrop = document.querySelector(".selected-backdrop-img");
+  const selectedPoster = document.querySelector(".selected-poster-img");
 
-// function renderInfo(movie) {
-//   console.log(movie);
+  const movie_id = localStorage.getItem("SELECTED_MOVIE_ID");
+  let movie = undefined;
+  try {
+    movie = await getInfo(movie_id);
+  } catch (e) {
+    console.log("Error: ", e);
+  }
+  selectedBackdrop.setAttribute(
+    "src",
+    `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+  );
+  selectedPoster.setAttribute(
+    "src",
+    `https://image.tmdb.org/t/p/original${movie.poster_path}`
+  );
+}
 
-//   //console.log(selectedBackdrop);
-//   //selectedBackdrop.setAttribute("src", movie.getAttribute("src"));
-//   //console.log(movie.getAttribute("src"));
-// }
+renderInfo();
