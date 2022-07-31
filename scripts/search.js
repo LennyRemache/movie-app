@@ -10,6 +10,7 @@ search_container.addEventListener("click", (e) => {
 
 search_btn.addEventListener("click", () => {
   search_container.style.display = "initial";
+  search_bar.focus();
 });
 
 search_bar.addEventListener("click", (e) => {
