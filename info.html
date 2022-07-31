@@ -20,6 +20,27 @@
     <div class="spinner-wrapper">
       <div class="spinner-border" role="status"></div>
     </div>
+    <div class="search-container">
+      <div class="search-wrapper">
+        <input
+          type="search"
+          name=""
+          id="search-bar"
+          placeholder="Enter Movie Title"
+        />
+        <ul class="search-results">
+          <!-- <li class="movie">
+            <img class="search-item" src="" alt="" srcset="" />
+            <p>
+              <span class="search-title"></span> <br /><span
+                class="search-release-year"
+              ></span
+              ><br /><span class="search-length"></span>
+            </p>
+          </li> -->
+        </ul>
+      </div>
+    </div>
     <header>
       <h1 id="website-name">Movie.Info</h1>
       <nav id="main-nav">
@@ -31,25 +52,19 @@
           <li><a>Upcoming</a></li>
         </ul>
       </nav>
-      <div class="search-container">
-        <i class="bi bi-search"></i>
-      </div>
+      <i class="bi bi-search"></i>
     </header>
     <main>
       <section class="selected-movie">
-        <img
-          class="selected-backdrop-img"
-          src=""
-        />
+        <img class="selected-backdrop-img" src="" />
         <section class="selected-info">
-          <img
-            class="selected-poster-img"
-            src=""
-            alt=""
-          />
-          <p><span class="selected-title"></span> <br> <span class="selected-overview"></span></p>
+          <img class="selected-poster-img" src="" alt="" />
+          <p>
+            <span class="selected-title"></span> <br />
+            <span class="selected-overview"></span>
+          </p>
         </section>
-    </div>
+      </section>
     </main>
     <footer>
       <nav id="footer-nav">
@@ -63,9 +78,9 @@
       </nav>
       <p id="website-copyright">&copy; 2022 Movie.Info</p>
     </footer>
+    <script src="./scripts/allMovies.js"></script>
     <script src="./scripts/info.js"></script>
     <script src="./scripts/search.js"></script>
-    <script src="./scripts/allMovies.js"></script>
     <script src="./scripts/loader.js"></script>
   </body>
 </html>

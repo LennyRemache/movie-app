@@ -205,3 +205,5 @@ async function renderUpcomingMovies() {
   );
   upcomingMovieImages[2].setAttribute("name", upcomingMovieThree.id);
 }
+
+getAllMovies();
