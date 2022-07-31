@@ -121,7 +121,7 @@ header {
 }
 
 .search-container {
-  border: 0px solid red;
+  border: 1px solid red;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -130,8 +130,63 @@ header {
   display: none;
 }
 
+.search-wrapper {
+  border: 0px solid red;
+  max-width: 450px;
+  width: 100%;
+  margin: 15% auto auto auto;
+}
+
 #search-bar {
-  transform: translate(50%, 50%);
+  border: none;
+  border-radius: 5px 5px 0 0;
+  background-color: rgba(165, 165, 165, 0.729);
+  outline: none;
+  appearance: none;
+  color: whitesmoke;
+  padding: 5px 15px;
+  appearance: none;
+  width: 100%;
+}
+
+#search-bar::placeholder {
+  color: rgba(0, 0, 0, 0.191);
+}
+
+.search-results {
+  border: 0px solid blue;
+  background-color: rgba(165, 165, 165, 0.729);
+  border-radius: 0 0 5px 5px;
+  list-style-type: none;
+  padding: 0;
+  height: 100%;
+}
+
+.search-results li {
+  border: 1px solid green;
+  padding: 5px 15px;
+  height: 100%;
+  display: flex;
+}
+
+.search-item {
+  max-height: 110px;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+  height: 15px;
+  width: 15px;
+  background-image: url("../icons/x.svg");
+  background-size: 15px 15px;
+}
+
+[type="search"]::-webkit-search-cancel-button:hover {
+  cursor: pointer;
 }
 
 main {

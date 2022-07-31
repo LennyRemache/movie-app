@@ -1,9 +1,11 @@
 const search_btn = document.querySelector(".bi-search");
 const search_container = document.querySelector(".search-container");
 const search_bar = document.querySelector("#search-bar");
+const html_el = document.getElementsByTagName("html");
 
 search_btn.addEventListener("click", () => {
   search_container.style.display = "initial";
+  html_el.style.overflow = "hidden";
 });
 
 search_bar.addEventListener("click", (e) => {
@@ -15,4 +17,5 @@ search_bar.addEventListener("click", (e) => {
 
 search_container.addEventListener("click", (e) => {
   search_container.style.display = "none";
+  search_bar.value = "";
 });
