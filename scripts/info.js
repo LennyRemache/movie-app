@@ -1,5 +1,3 @@
-const apiKey = "3bcfcbbd6f6ebf7821effeb075ae3ed6";
-
 async function getInfo(movie_id) {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}&language=en-US&append_to_response=watch%2Fproviders`,

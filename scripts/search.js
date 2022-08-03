@@ -58,7 +58,8 @@ async function searchMovie(title, page = 1) {
 function renderSearchedMovie(search, amount) {
   let movieList = "";
   for (let i = 0; i < amount; i++) {
-    movieList += `
+    if (search.results[i].poster_path !== null) {
+      movieList += `
         <li>
             <img class="search-item movie" src="https://image.tmdb.org/t/p/original${
               search.results[i].poster_path
@@ -73,6 +74,7 @@ function renderSearchedMovie(search, amount) {
                 <span class="search-length"></span>
              </p>
         </li>`;
+    }
   }
   search_list.innerHTML = movieList;
   getAllMovies();

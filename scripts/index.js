@@ -2,8 +2,6 @@
 // https://image.tmdb.org/t/p/original/[poster_path]
 // the movie db API -> The Movie Database to retrieve movie searches
 
-const apiKey = "3bcfcbbd6f6ebf7821effeb075ae3ed6";
-
 const movies = {
   getPopular: async function () {
     return await fetch(
