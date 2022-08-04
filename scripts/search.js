@@ -20,10 +20,11 @@ search_bar.addEventListener("click", (e) => {
   // in this case the parent is the search-container
 });
 
+let searchTimer;
 search_bar.addEventListener("input", () => {
+  clearTimeout(searchTimer);
   search_list.style.display = "inherit";
-
-  setTimeout(async () => {
+  searchTimer = setTimeout(async () => {
     let search = undefined;
     const title = search_bar.value;
     if (title !== "") {
