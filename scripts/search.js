@@ -30,7 +30,7 @@ search_bar.addEventListener("input", () => {
     if (title !== "") {
       try {
         search = await searchMovie(title);
-        console.log("searching for ", title);
+        console.log("searching for", title);
         let MAX_SEARCH_RESULTS = 5;
         if (
           search.results.length < MAX_SEARCH_RESULTS &&
@@ -45,7 +45,7 @@ search_bar.addEventListener("input", () => {
         console.log("Error: ", e);
       }
     }
-  }, 1500);
+  }, 500);
 });
 
 async function searchMovie(title, page = 1) {
