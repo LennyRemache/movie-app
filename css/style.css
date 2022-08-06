@@ -385,10 +385,19 @@ footer {
   position: static;
 }
 
-.container {
-  height: 100vh;
-}
-
 .pop-row {
   margin: 1.5rem;
+}
+
+.result-nav {
+  border: 0px solid red;
+  text-align: center;
+}
+
+.prev-btn {
+  display: none;
+}
+
+.next-btn {
+  display: none;
 }
