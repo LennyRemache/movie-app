@@ -11,14 +11,6 @@ prevBtn.addEventListener("click", () => {
   document.location.reload(true);
 });
 
-async function getNowPlaying(page) {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${page}&region=US`
-  );
-  const data = await res.json();
-  return data.results;
-}
-
 let page = localStorage.getItem("nowPlayingPage");
 if (page === null) {
   page = 1;
@@ -29,6 +21,14 @@ if (parseInt(page) !== 1) {
   prevBtn.style.display = "initial";
 } else {
   prevBtn.style.display = "none";
+}
+
+async function getNowPlaying(page) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${page}&region=US`
+  );
+  const data = await res.json();
+  return data.results;
 }
 
 window.addEventListener("load", async () => {
@@ -50,7 +50,8 @@ function renderNowPlayingPage(movies) {
   const movieContainer = document.querySelector(".container");
   let movieLocation = "";
   movies.forEach((movie) => {
-    movieLocation += `
+    if (movie.poster_path !== null) {
+      movieLocation += `
         <div class="pop-row row movie" name="${movie.id}">
             <div class="col-5 col-lg-2">
                 <img
@@ -63,6 +64,7 @@ function renderNowPlayingPage(movies) {
             </div>
         </div>
     `;
+    }
   });
   movieContainer.innerHTML = movieLocation;
   getAllMovies();
