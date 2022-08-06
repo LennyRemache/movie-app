@@ -1,3 +1,16 @@
+const nextBtn = document.querySelector(".next-btn");
+const prevBtn = document.querySelector(".prev-btn");
+
+nextBtn.addEventListener("click", () => {
+  localStorage.setItem("nowPlayingPage", parseInt(page) + 1);
+  document.location.reload(true);
+});
+
+prevBtn.addEventListener("click", () => {
+  localStorage.setItem("nowPlayingPage", parseInt(page) - 1);
+  document.location.reload(true);
+});
+
 async function getNowPlaying(page) {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${page}&region=US`
@@ -6,15 +19,26 @@ async function getNowPlaying(page) {
   return data.results;
 }
 
+let page = localStorage.getItem("nowPlayingPage");
+if (page === null) {
+  page = 1;
+  localStorage.setItem("nowPlayingPage", page);
+}
+
+if (parseInt(page) !== 1) {
+  prevBtn.style.display = "initial";
+} else {
+  prevBtn.style.display = "none";
+}
+
 window.addEventListener("load", async () => {
-  let page = localStorage.getItem("nowPlayingPage");
   let playingMovies = [];
-  if (page === null) {
-    page = 1;
-    localStorage.setItem("nowPlayingPage", page);
-  }
   try {
     playingMovies = await getNowPlaying(page);
+    const nextPage = await getNowPlaying((parseInt(page) + 1).toString());
+    if (nextPage.length !== 0) {
+      nextBtn.style.display = "initial";
+    }
     //console.log(playingMovies.length);
     renderNowPlayingPage(playingMovies);
   } catch (err) {
@@ -43,5 +67,3 @@ function renderNowPlayingPage(movies) {
   movieContainer.innerHTML = movieLocation;
   getAllMovies();
 }
-
-const nextBtn = document.querySelector(".next-btn");
