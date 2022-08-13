@@ -88,18 +88,18 @@ async function getGenres() {
   return data.genres;
 }
 
-window.addEventListener("load", async () => {
-  let genres = [];
-  try {
-    genres = await getGenres();
-  } catch (e) {
-    console.log("Error: ", e);
-  }
-  renderGenres("Action", genres);
-  renderGenres("Romance", genres);
-  renderGenres("Documentary", genres);
-  renderGenres("Animation", genres);
-});
+// window.addEventListener("load", async () => {
+//   let genres = [];
+//   try {
+//     genres = await getGenres();
+//   } catch (e) {
+//     console.log("Error: ", e);
+//   }
+//   renderGenres("Action", genres);
+//   renderGenres("Romance", genres);
+//   renderGenres("Documentary", genres);
+//   renderGenres("Animation", genres);
+// });
 
 window.addEventListener("load", () => {
   renderTopTrending();
@@ -124,42 +124,42 @@ async function renderTopTrending() {
   getAllMovies();
 }
 
-async function renderGenres(genre_name, genres) {
-  let genre_id;
-  genres.forEach((genre) => {
-    if (genre_name === genre.name) {
-      genre_id = genre.id;
-    }
-  });
-  const [movieOne, movieTwo, movieThree, movieFour] =
-    await movies.getGenreMovies(genre_id);
-  const movieImages = document.querySelectorAll(
-    `.${genre_name.toLowerCase()}-movie-img`
-  );
-  movieImages[0].setAttribute(
-    "src",
-    `https://image.tmdb.org/t/p/original${movieOne.backdrop_path}`
-  );
-  movieImages[0].setAttribute("name", movieOne.id);
+// async function renderGenres(genre_name, genres) {
+//   let genre_id;
+//   genres.forEach((genre) => {
+//     if (genre_name === genre.name) {
+//       genre_id = genre.id;
+//     }
+//   });
+//   const [movieOne, movieTwo, movieThree, movieFour] =
+//     await movies.getGenreMovies(genre_id);
+//   const movieImages = document.querySelectorAll(
+//     `.${genre_name.toLowerCase()}-movie-img`
+//   );
+//   movieImages[0].setAttribute(
+//     "src",
+//     `https://image.tmdb.org/t/p/original${movieOne.backdrop_path}`
+//   );
+//   movieImages[0].setAttribute("name", movieOne.id);
 
-  movieImages[1].setAttribute(
-    "src",
-    `https://image.tmdb.org/t/p/original${movieTwo.backdrop_path}`
-  );
-  movieImages[1].setAttribute("name", movieTwo.id);
+//   movieImages[1].setAttribute(
+//     "src",
+//     `https://image.tmdb.org/t/p/original${movieTwo.backdrop_path}`
+//   );
+//   movieImages[1].setAttribute("name", movieTwo.id);
 
-  movieImages[2].setAttribute(
-    "src",
-    `https://image.tmdb.org/t/p/original${movieThree.backdrop_path}`
-  );
-  movieImages[2].setAttribute("name", movieThree.id);
+//   movieImages[2].setAttribute(
+//     "src",
+//     `https://image.tmdb.org/t/p/original${movieThree.backdrop_path}`
+//   );
+//   movieImages[2].setAttribute("name", movieThree.id);
 
-  movieImages[3].setAttribute(
-    "src",
-    `https://image.tmdb.org/t/p/original${movieFour.backdrop_path}`
-  );
-  movieImages[3].setAttribute("name", movieFour.id);
-}
+//   movieImages[3].setAttribute(
+//     "src",
+//     `https://image.tmdb.org/t/p/original${movieFour.backdrop_path}`
+//   );
+//   movieImages[3].setAttribute("name", movieFour.id);
+// }
 
 // renders the 3 most popular movies into thw carousal containing popular movies
 async function renderPopMovies() {

@@ -87,6 +87,7 @@ header {
   padding-left: 1rem;
   padding-right: 1rem;
   width: 100%;
+  z-index: 2;
 }
 
 #main-nav ul,
