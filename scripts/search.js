@@ -61,10 +61,10 @@ function renderSearchedMovie(search, amount) {
   for (let i = 0; i < amount; i++) {
     if (search.results[i].poster_path !== null) {
       movieList += `
-        <li>
-            <img class="search-item movie" src="https://image.tmdb.org/t/p/original${
+        <li class="movie" name="${search.results[i].id}">
+            <img class="search-item" src="https://image.tmdb.org/t/p/original${
               search.results[i].poster_path
-            }" name="${search.results[i].id}" />
+            }" />
             <p>
                 <span class="search-title">${search.results[i].title}</span> 
                 <br />
