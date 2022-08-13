@@ -1,9 +1,20 @@
-const nowPlaying = document.querySelector("#now-playing");
-nowPlaying.addEventListener("click", () => {
-  localStorage.setItem("nowPlayingPage", 1);
+const nowPlaying = document.querySelectorAll("#now-playing");
+nowPlaying.forEach((link) => {
+  link.addEventListener("click", () => {
+    localStorage.setItem("nowPlayingPage", 1);
+  });
 });
 
-const popular = document.querySelector("#popular");
-popular.addEventListener("click", () => {
-  localStorage.setItem("popularPage", 1);
+const popular = document.querySelectorAll("#popular");
+popular.forEach((link) => {
+  link.addEventListener("click", () => {
+    localStorage.setItem("popularPage", 1);
+  });
+});
+
+const upcoming = document.querySelectorAll("#upcoming");
+upcoming.forEach((link) => {
+  link.addEventListener("click", () => {
+    localStorage.setItem("upcomingPage", 1);
+  });
 });
