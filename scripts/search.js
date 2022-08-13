@@ -77,6 +77,7 @@ function renderSearchedMovie(search, amount) {
         </li>`;
     }
   }
+
   search_list.innerHTML = movieList;
   getAllMovies();
 }

@@ -109,6 +109,7 @@ header {
   padding: 0.55rem;
   font-size: 0.9rem;
   background-color: rgba(68, 66, 66, 0.449);
+  z-index: 2;
 }
 
 .bi-search:hover {
@@ -201,6 +202,10 @@ main {
   z-index: -1;
 }
 
+.popular-movie {
+  z-index: 0;
+}
+
 .popular-movie-img,
 .selected-backdrop-img {
   width: 100%;
@@ -222,9 +227,9 @@ main {
 .selected-info {
   border: 0px solid red;
   width: fit-content;
-  height: 60%;
+  height: 70%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -238,13 +243,11 @@ main {
 
 .selected-poster-img {
   border: 0px solid blue;
-  width: auto;
-  height: 100%;
-  object-fit: contain;
 }
 
 .selected-info p {
   border: 0px solid green;
+  min-width: 350px;
   max-width: 400px;
   width: 100%;
   margin: 0.5rem;
@@ -259,6 +262,14 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 0px solid red;
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+}
+
+.popular-movie-title:hover {
+  cursor: pointer;
 }
 
 .popular-movie-btn {
@@ -266,6 +277,8 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
+  text-decoration: none;
+  color: white;
 }
 
 .genres-container {

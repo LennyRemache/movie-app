@@ -118,6 +118,10 @@ async function renderTopTrending() {
   movieImage.setAttribute("name", trendingMovie.id);
   const movieTitle = document.querySelector(".popular-movie-title");
   movieTitle.textContent = trendingMovie.title;
+  movieTitle.setAttribute("name", `${trendingMovie.id}`);
+  const popMovieContainer = document.querySelector(".popular-movie");
+  popMovieContainer.setAttribute("name", `${trendingMovie.id}`);
+  getAllMovies();
 }
 
 async function renderGenres(genre_name, genres) {
@@ -161,18 +165,25 @@ async function renderGenres(genre_name, genres) {
 async function renderPopMovies() {
   const [popMovieOne, popMovieTwo, popMovieThree] = await movies.getPopular();
   const popularMovieImages = document.querySelectorAll(".popular-movie-image");
+
+  const firstTitle = document.querySelector(".first-pop-title");
+  firstTitle.textContent = popMovieOne.title;
   popularMovieImages[0].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${popMovieOne.backdrop_path}`
   );
   popularMovieImages[0].setAttribute("name", popMovieOne.id);
 
+  const secondTitle = document.querySelector(".second-pop-title");
+  secondTitle.textContent = popMovieTwo.title;
   popularMovieImages[1].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${popMovieTwo.backdrop_path}`
   );
   popularMovieImages[1].setAttribute("name", popMovieTwo.id);
 
+  const thirdTitle = document.querySelector(".third-pop-title");
+  thirdTitle.textContent = popMovieThree.title;
   popularMovieImages[2].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${popMovieThree.backdrop_path}`
@@ -185,18 +196,25 @@ async function renderUpcomingMovies() {
   const [upcomingMovieOne, upcomingMovieTwo, upcomingMovieThree] =
     await movies.getUpcoming();
   const upcomingMovieImages = document.querySelectorAll(".upcoming-movie-img");
+
+  const firstTitle = document.querySelector(".first-upcoming-title");
+  firstTitle.textContent = upcomingMovieOne.title;
   upcomingMovieImages[0].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${upcomingMovieOne.backdrop_path}`
   );
   upcomingMovieImages[0].setAttribute("name", upcomingMovieOne.id);
 
+  const secondTitle = document.querySelector(".second-upcoming-title");
+  secondTitle.textContent = upcomingMovieTwo.title;
   upcomingMovieImages[1].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${upcomingMovieTwo.backdrop_path}`
   );
   upcomingMovieImages[1].setAttribute("name", upcomingMovieTwo.id);
 
+  const thirdTitle = document.querySelector(".third-upcoming-title");
+  thirdTitle.textContent = upcomingMovieThree.title;
   upcomingMovieImages[2].setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${upcomingMovieThree.backdrop_path}`
