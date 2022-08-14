@@ -416,3 +416,39 @@ footer {
 .next-btn {
   display: none;
 }
+
+@media screen and (max-width: 674px) {
+  header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main-nav,
+  #footer-nav {
+    display: flex;
+    border: 0px solid red;
+    width: 100vw;
+    justify-content: center;
+    padding: 0;
+  }
+
+  #main-nav ul,
+  #footer-nav ul {
+    border: 0px solid blue;
+    width: fit-content;
+    margin: 0;
+  }
+
+  #main-nav ul li,
+  #footer-nav ul li {
+    font-size: 1rem;
+    padding: 0rem 0rem;
+    margin: 0.5rem;
+  }
+
+  .popular-movie-image,
+  .upcoming-movie-img {
+    height: 100%;
+  }
+}
