@@ -452,3 +452,33 @@ footer {
     height: 100%;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .selected-movie {
+    border: 0px solid red;
+  }
+
+  .selected-info {
+    border: 0px solid blue;
+    flex-wrap: wrap;
+  }
+
+  .selected-info img {
+    max-height: 70%;
+    height: 100%;
+  }
+
+  .selected-info p {
+    font-size: smaller;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container div p {
+    font-size: smaller;
+  }
+  .row-movie {
+    border: 0px solid green;
+    margin: auto;
+  }
+}

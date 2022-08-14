@@ -53,7 +53,7 @@ function renderUpcomingPage(movies) {
     if (movie.poster_path !== null) {
       movieLocation += `
         <div class="pop-row row movie" name="${movie.id}">
-            <div class="col-5 col-lg-2">
+            <div class="col-5 col-lg-2 row-movie">
                 <img
                     class="img-fluid"
                     src="https://image.tmdb.org/t/p/original${movie.poster_path}"
